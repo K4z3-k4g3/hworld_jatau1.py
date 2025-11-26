@@ -1,1 +1,1 @@
-# code prints "hello world"
+# a code that prints "hello world"
