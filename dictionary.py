@@ -1,3 +1,6 @@
+import streamlit as st
+
+# Dictionary data
 dictionary = {
     "hello": "hola",
     "goodbye": "adiós",
@@ -22,17 +25,18 @@ dictionary = {
     "time": "tiempo"
 }
 
-print("English to Spanish Dictionary")
-print("Type 'exit' to quit\n")
+# App title
+st.title("English to Spanish Dictionary")
 
-while True:
-    word = input("Enter an English word: ").lower()
+# Instruction
+st.write("Enter an English word to see its Spanish meaning")
 
-    if word == "exit":
-        print("Goodbye!")
-        break
+# Text input
+word = st.text_input("Enter an English word:")
 
-    if word in dictionary:
-        print(f"Spanish meaning: {dictionary[word]}\n")
+# Button
+if st.button("Translate"):
+    if word.lower() in dictionary:
+        st.success(f"Spanish meaning: {dictionary[word.lower()]}")
     else:
-        print("Word not found in dictionary.\n")
+        st.error("Word not found in dictionary")
